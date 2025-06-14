@@ -1,12 +1,12 @@
-# Backend Matriculas
+# Backend Enrollments
 
 Autor: **Rxul-dev**
 
-Backend para gestión de estudiantes, cursos y matrículas usando Express, Prisma y PostgreSQL.
+A backend application for managing students, courses, and enrollments using Express, Prisma, and Dockerized PostgreSQL.
 
 ---
 
-##  Tecnologías
+##  Technologies
 
 - Node.js (Bun)
 - Express
@@ -15,19 +15,19 @@ Backend para gestión de estudiantes, cursos y matrículas usando Express, Prism
 
 ---
 
-##  Cómo usar
+##  How to Use
 
 ```bash
-# Correr PostgreSQL
+# Run PostgreSQL
 docker-compose up -d 
 
-# Aplicar migraciones
+# Apply migrations
 bunx prisma migrate dev --name init
 
-# Generar cliente Prisma
+# Generate Prisma client
 bunx prisma generate
 
-# Ejecutar backend
+# Run backend
 bun run src/index.ts
 
 --------------------------
@@ -36,8 +36,8 @@ bun run src/index.ts
 
 ###  Students
 
-- `GET /students` — Lista todos los estudiantes
-- `POST /students` — Crea un nuevo estudiante
+- `GET /students` — List all students
+- `POST /students` — Create a new student
 
 ```json
 {
@@ -50,27 +50,27 @@ bun run src/index.ts
 
 # Courses 
 
-- GET /courses — Lista todos los cursos
-- POST /courses — Crea un nuevo curso
+- GET /courses — List all courses
+- POST /courses — Create a new course
 
 {
-  "name": "Física Cuántica",
+  "name": "Quantum Physics",
   "code": "FISQ-101"
 }
 
 # Enrollments
 
-- POST /enrollments — Matricula un estudiante en un curso
+- POST /enrollments — Enroll a student in a course
 
 {
-  "student_id": "uuid-del-estudiante",
-  "course_id": "uuid-del-curso"
+  "student_id": "student-uuid",
+  "course_id": "course-uuid"
 }
 
-- GET /students/:id/courses — Ver los cursos de un estudiante
-- GET /courses/:id/students — Ver los estudiantes de un curso
+- GET /students/:id/courses — View the courses of a student
+- GET /courses/:id/students — View the students in a course
 
-#  students/id/courses (id student)
+#  students/id/courses (student id)
 
 get students/id/courses
 
@@ -81,7 +81,7 @@ get students/id/courses
     "created_at": "2025-06-14T00:29:29.234Z"
 }
 
-# /courses/:id/students  (id course)
+# /courses/:id/students  (course id)
 
 get /courses/:id/students
 
