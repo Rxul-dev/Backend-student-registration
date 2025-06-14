@@ -19,7 +19,7 @@ A backend application for managing students, courses, and enrollments using Expr
 
 ```bash
 # Run PostgreSQL
-docker-compose up -d 
+docker compose up
 
 # Apply migrations
 bunx prisma migrate dev --name init
