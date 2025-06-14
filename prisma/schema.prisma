@@ -1,0 +1,40 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String   @id @default(uuid())
+  first_name       String
+  second_name      String?
+  last_name        String
+  second_last_name String?
+  carnet_number    String   @unique
+  created_at       DateTime @default(now())
+
+  enrollments      StudentCourse[] // ← relación
+}
+
+model Course {
+  id         String   @id @default(uuid())
+  name       String
+  code       String   @unique
+  created_at DateTime @default(now())
+
+  enrollments StudentCourse[]
+}
+
+model StudentCourse {
+  id           String   @id @default(uuid())
+  student_id   String
+  course_id    String
+  enrolled_at  DateTime @default(now())
+
+  student User   @relation(fields: [student_id], references: [id])
+  course  Course @relation(fields: [course_id], references: [id])
+}
