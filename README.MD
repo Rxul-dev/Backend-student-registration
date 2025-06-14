@@ -27,6 +27,9 @@ bunx prisma migrate dev --name init
 # Generate Prisma client
 bunx prisma generate
 
+# Generate test user and test courses 
+bun run prisma/seed.ts
+
 # Run backend
 bun run src/index.ts
 
