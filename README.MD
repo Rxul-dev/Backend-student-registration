@@ -11,7 +11,7 @@ A backend application for managing students, courses, and enrollments using Expr
 - Node.js (Bun)
 - Express
 - Prisma ORM
-- PostgreSQL (contenedor Docker)
+- PostgreSQL (Docker container)
 
 ---
 
